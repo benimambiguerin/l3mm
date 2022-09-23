@@ -1,0 +1,40 @@
+.section_card {
+	display: flex;
+	justify-content: space-around;
+	background-color: #EEEDF2;
+}
+
+.content {
+	background-color: #EEEDF2;
+	height: 762px;
+}
+
+.card {
+	width: 300px;
+	background-color: #FEF2F1;
+	border-radius: 15px;
+}
+
+.card_body {
+	height: 300px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	padding: 30px;
+	box-shadow: ;
+}
+
+.card_body h3 {
+	font-size: 22px;
+}
+
+.card_body a {
+	border: solid 1px black;
+	align-self: flex-end;
+}
+
+
+
+.card img {
+	border-radius: 15px 15px 0px 0px;
+}

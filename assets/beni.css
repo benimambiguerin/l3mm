@@ -1,0 +1,34 @@
+.quotes-sliders__text {
+  width: 50%;
+  height: 150px;
+  -webkit-box-shadow: -5px 5x 5px grey;
+          box-shadow: -5px 5x 5px grey;
+}
+
+.page-witdh {
+  margin-bottom: 10px;
+}
+
+.rte-settin {
+  font-size: xxx-large;
+}
+
+.quote-wrappers {
+  border: solid 1px black;
+}
+
+.rte-settin p {
+  color: #72FDA0;
+}
+
+.test {
+  background-color: blue;
+}
+
+.testimage{
+	background-color: aqua;
+}
+
+.body{
+	background-color: bisque;
+}

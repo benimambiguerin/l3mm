@@ -1,0 +1,168 @@
+<div class="page-width" data-section-id="{{ section.id }}" data-section-type="quotes">
+  {% if section.settings.title != blank %}
+    <div class="section-header text-center">
+      <h2>{{ section.settings.title | escape }}</h2>
+    </div>
+  {% endif %}
+
+  {% if section.blocks.size > 0 %}
+    <div class="quotes-wrappers" data-slider>
+      <div class="quotes-slider-wrapper" data-slider-container>
+        <div class="quotes-slider" id="Quotes-{{ section.id }}" data-count="{{ section.blocks.size }}" data-slider-track>
+          {% for block in section.blocks %}
+            <div id="slickSlide{{ block.id }}"
+              class="quotes-slide quotes-slide--{{ block.id }}{% if section.blocks.size == 1 %} quotes-slide--single{% endif %}"
+              aria-labelledby="slickDot{{ block.id }}"
+              {{ block.shopify_attributes }}
+              data-slider-slide-index="{{ forloop.index0 }}"
+              data-slider-item>
+
+              <blockquote class="quotes-sliders__text text-center">
+                {% if block.settings.quote != blank %}
+                  <div class="rte-settin rte">{{ block.settings.quote }}</div>
+                {% endif %}
+                {% if block.settings.author != blank %}
+                  <cite>{{ block.settings.author | escape }}</cite>
+                {% endif %}
+              </blockquote>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      {% if section.blocks.size > 1 %}
+        <ul class="slick-dots{% if section.blocks.size < 4 %} slick-dots--mobile-only{% endif %}" data-slider-indicators>
+          {%- for block in section.blocks -%}
+            <li{% if forloop.first %} class="slick-active"{% endif %} data-slider-indicator>
+              <button id="slickDot{{ block.id }}"
+                aria-label="{{ 'sections.slideshow.load_slide' | t: slide_number: forloop.index }}"
+                data-slide-number="{{ forloop.index0 }}"
+                aria-controls="slickSlide{{ block.id }}"></button>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {% endif %}
+    </div>
+  {% endif %}
+
+  {% if section.blocks.size == 0 %}
+    {% include 'no-blocks' %}
+  {% endif %}
+</div>
+{% schema %}
+{
+  "name": "Chiffre",
+  "max_blocks": 3,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Chiffre",
+      "default": {
+        "cs": "Ohlasy",
+        "da": "Udtalelser",
+        "de": "Testimonials",
+        "en": "Testimonials",
+        "es": "Testimonios",
+        "fi": "Suositukset",
+        "fr": "Description",
+        "it": "Testimonial",
+        "ja": "お客様の声",
+        "ko": "추천",
+        "nb": "Tilbakemeldinger fra kunder",
+        "nl": "Testimonials",
+        "pl": "Referencje",
+        "pt-BR": "Depoimentos",
+        "pt-PT": "Depoimentos",
+        "sv": "Kundberättelser",
+        "th": "เสียงชื่นชมจากลูกค้า",
+        "tr": "Kullanıcı görüşleri",
+        "vi": "Chứng thực",
+        "zh-CN": "感言",
+        "zh-TW": "推薦文"
+      }
+    }
+  ],
+  "blocks": [
+    {
+      "type": "quote",
+      "name": "Chiffre",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "quote",
+          "label": {
+            "cs": "Text",
+            "da": "Tekst",
+            "de": "Text",
+            "en": "Text",
+            "es": "Texto",
+            "fi": "Teksti",
+            "fr": "Texte",
+            "it": "Testo",
+            "ja": "テキスト",
+            "ko": "텍스트",
+            "nb": "Tekst",
+            "nl": "Tekst",
+            "pl": "Tekst",
+            "pt-BR": "Texto",
+            "pt-PT": "Texto",
+            "sv": "Text",
+            "th": "ข้อความ",
+            "tr": "Metin",
+            "vi": "Văn bản",
+            "zh-CN": "文本",
+            "zh-TW": "文字"
+          },
+"default": "<p>0</p>"
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Description",
+          "default": "Experience"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Chiffre",
+      "category": {
+        "cs": "Text",
+        "da": "Tekst",
+        "de": "Text",
+        "en": "Text",
+        "es": "Texto",
+        "fi": "Teksti",
+        "fr": "Texte",
+        "it": "Testo",
+        "ja": "テキスト",
+        "ko": "텍스트",
+        "nb": "Tekst",
+        "nl": "Tekst",
+        "pl": "Tekst",
+        "pt-BR": "Texto",
+        "pt-PT": "Texto",
+        "sv": "Text",
+        "th": "ข้อความ",
+        "tr": "Metin",
+        "vi": "Văn bản",
+        "zh-CN": "文本",
+        "zh-TW": "文字"
+      },
+      "blocks": [
+        {
+          "type": "quote"
+        },
+        {
+          "type": "quote"
+        },
+        {
+          "type": "quote"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

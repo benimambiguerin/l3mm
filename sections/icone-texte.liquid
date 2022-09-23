@@ -1,0 +1,82 @@
+<div class="content"><h3>{{section.settings.heading}}</h3>
+<p>{{section.settings.description}}</p>
+
+
+
+<div class="section_card">
+{%for block in section.blocks %}
+
+
+  
+    <div class="card">
+        <div class="card_header">
+            <img class="testimage" src="{{block.settings.image | img_url:'300x'}}"/>
+        </div>
+        <div class="card_body">
+            <div class="card_titleblock"><h3>{{block.settings.titleblock}}</h3></div>
+            <div class="card_descriptionblock">
+            <p>{{block.settings.descriptionblock}}</p>
+            </div>
+            <a href="#">En savoir plus</a>
+        </div>
+    </div>
+
+
+
+{%endfor%}
+</div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Icone avec texte definov",
+    "settings": [
+                    {
+                      "type":"text",
+                      "label":"Titre",
+                      "id":"heading"
+                    },
+                    {
+                      "type":"richtext",
+                      "label":"ta description",
+                      "id":"description"
+                    }
+                ],
+      "blocks": [
+        {
+          "type":"image_picker",
+          "name":"image block",
+          "settings":[
+            {
+              "type":"image_picker",
+              "label":"your image",
+              "id":"image"
+            },
+            {
+                "type": "checkbox",
+                "id": "enable_image",
+                "label": "Afficher l'image",
+                "default": true
+            },
+            {
+                "type":"text",
+                "label":"Titre",
+                "id":"titleblock"
+            },
+            {
+                "type":"richtext",
+                "label":"ta description",
+                "id":"descriptionblock"
+            }
+          ]
+        }
+      ],
+    "presets":[
+      {
+        "category":"image",
+        "name":"icone avec texte"
+      }
+    ]
+  }
+{% endschema %}
